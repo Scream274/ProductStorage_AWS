@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Product-Saver</artifactId>
+	<artifactId>ProductStorage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Product-Saver</name>
 	<description>Product Saver for Spring Boot using AWS</description>
@@ -50,6 +50,17 @@
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk</artifactId>
 			<version>1.11.163</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.19</version>
 		</dependency>
 
 		<dependency>

@@ -1,9 +1,9 @@
-package com.example.saver.service.impl;
+package com.example.storage.service.impl;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.example.saver.config.S3Config;
-import com.example.saver.service.BucketImageService;
+import com.example.storage.config.S3Config;
+import com.example.storage.service.BucketImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

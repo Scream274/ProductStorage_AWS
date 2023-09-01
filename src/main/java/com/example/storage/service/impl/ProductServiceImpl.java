@@ -1,11 +1,10 @@
-package com.example.saver.service.impl;
+package com.example.storage.service.impl;
 
-import com.example.saver.model.Product;
-import com.example.saver.repository.ProductRepository;
-import com.example.saver.service.ProductService;
+import com.example.storage.model.Product;
+import com.example.storage.repository.ProductRepository;
+import com.example.storage.service.ProductService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

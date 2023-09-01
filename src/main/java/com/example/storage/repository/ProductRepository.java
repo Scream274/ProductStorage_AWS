@@ -1,6 +1,6 @@
-package com.example.saver.repository;
+package com.example.storage.repository;
 
-import com.example.saver.model.Product;
+import com.example.storage.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

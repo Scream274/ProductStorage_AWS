@@ -1,4 +1,4 @@
-package com.example.saver;
+package com.example.storage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

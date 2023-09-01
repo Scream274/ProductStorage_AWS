@@ -1,4 +1,4 @@
-package com.example.saver.model;
+package com.example.storage.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,5 +18,5 @@ public class Product {
     private int price;
     private String description;
     private String photoLink;
-
+    private String thumbnailLink;
 }

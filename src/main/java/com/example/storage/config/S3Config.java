@@ -1,10 +1,11 @@
-package com.example.saver.config;
+package com.example.storage.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ public class S3Config {
     @Value("${aws.region}")
     private String region;
 
+    @Getter
     @Value("${aws.s3.bucketName}")
     private String bucketName;
 
@@ -33,7 +35,4 @@ public class S3Config {
                 .build();
     }
 
-    public String getBucketName() {
-        return bucketName;
-    }
 }

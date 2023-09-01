@@ -1,4 +1,4 @@
-package com.example.saver.config;
+package com.example.storage.config;
 
 import com.amazonaws.services.s3.AmazonS3;
 import org.springframework.beans.factory.annotation.Autowired;

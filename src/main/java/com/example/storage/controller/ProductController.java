@@ -1,9 +1,10 @@
-package com.example.saver.controller;
+package com.example.storage.controller;
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.example.saver.model.Product;
-import com.example.saver.service.BucketImageService;
-import com.example.saver.service.ProductService;
+import com.example.storage.model.Product;
+import com.example.storage.service.BucketImageService;
+import com.example.storage.service.ProductService;
+import com.example.storage.utils.ImageCompressor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -44,15 +44,22 @@ public class ProductController {
     @PostMapping("/add")
     public String addProduct(Product product, @RequestParam("photo") MultipartFile photo) throws IOException {
 
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(photo.getBytes());
+        String fileName = product.getName().replace(" ", "_") + ".jpg";
+        String thumbnailName = product.getName().replace(" ", "_") + "thumbnail.jpg";
+
+        MultipartFile thumbnailFile = ImageCompressor.compressImage(photo, 200, 200, 1);
+
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentLength(photo.getBytes().length);
 
-        String fileName = product.getName().replace(" ", "_") + ".jpg";
-        product.setPhotoLink(imageService.savePhoto(fileName,inputStream, metadata));
+        ObjectMetadata thumbnailMetadata = new ObjectMetadata();
+        thumbnailMetadata.setContentLength(thumbnailFile.getBytes().length);
 
-        System.out.println(product);
+        product.setPhotoLink(imageService.savePhoto(fileName, photo.getInputStream(), metadata));
+        product.setThumbnailLink(imageService.savePhoto(thumbnailName, thumbnailFile.getInputStream(), thumbnailMetadata));
+
         productService.add(product);
+
         return "redirect:/products";
     }
 

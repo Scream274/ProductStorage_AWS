@@ -1,6 +1,6 @@
-package com.example.saver.service;
+package com.example.storage.service;
 
-import com.example.saver.model.Product;
+import com.example.storage.model.Product;
 
 import java.util.List;
 

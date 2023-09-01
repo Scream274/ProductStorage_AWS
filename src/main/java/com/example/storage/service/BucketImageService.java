@@ -1,4 +1,4 @@
-package com.example.saver.service;
+package com.example.storage.service;
 
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
